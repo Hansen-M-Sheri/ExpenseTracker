@@ -29,7 +29,11 @@ Create Expense:  <br/>
 <br />
 <br />
 View Expenses: <br/>
-<img src="https://i.imgur.com/AXfxPVo.png" height="80%" width="80%" alt="View Expenses"/>
+<img src="https://i.imgur.com/aZXFPpk.png" height="80%" width="80%" alt="View Expenses"/>
+<br />
+<br />
+ View Filtered Expenses: <br/>
+<img src="https://i.imgur.com/aZXFPpk.png" height="80%" width="80%" alt="View Expenses"/>
 <br />
 <br />
 Edit Expense:  <br/>
