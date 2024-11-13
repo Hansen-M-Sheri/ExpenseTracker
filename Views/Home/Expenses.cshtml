@@ -8,47 +8,106 @@
     <h1 class="display-4">Expenses</h1>
     <br />
     <hr />
+
+    <!-- Search and Filter Form -->
+    <form id="searchForm">
+        <input type="text" id="searchTerm" placeholder="Search by description" />
+        <input type="number" id="minAmount" placeholder="Min Amount" />
+        <input type="number" id="maxAmount" placeholder="Max Amount" />
+        <button type="submit">Search</button>
+        <button id="showAllButton">Show All</button>
+    </form>
+       
+
+    <br />
     <h3>Total expense $@ViewBag.Expenses</h3>
     <br />
-    <table class="table">
-        <thead>
-            <tr>
-                <th>
-                    Id
-                </th>
-                <th>
-                    Value
-                </th>
-                <th>
-                    Description
-                </th>
-                <th>
 
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            @*create dynamic foreach loop for expenses*@
-            @{
-                foreach (var expense in Model)
-                {
-                    <tr>
-                        <td>
-                            @expense.Id
-                        </td>
-                        <td>
-                        @expense.Value
-                        </td>
-                        <td>
-                        @expense.Description
-                        </td>
-                        <td>
-                            <a asp-action="CreateEditExpense" asp-route-id="@expense.Id">Edit</a>
-                            <a asp-action="DeleteExpense" asp-route-id="@expense.Id">Delete</a>
-                        </td>
-                    </tr>
+    <!-- Expense List (Table) -->
+    <div id="expenseList">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Value</th>
+                    <th>Description</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @*create dynamic foreach loop for expenses*@
+                @{
+                    foreach (var expense in Model)
+                    {
+                                <tr>
+                                    <td>@expense.Id</td>
+                                    <td>@expense.Value</td>
+                                    <td>@expense.Description</td>
+                                    <td>
+                                        <a asp-action="CreateEditExpense" asp-route-id="@expense.Id">Edit</a>
+                                        <a asp-action="DeleteExpense" asp-route-id="@expense.Id">Delete</a>
+                                    </td>
+                                </tr>
+                    }
                 }
-            }
-        </tbody>
-    </table>
+            </tbody>
+        </table>
+    </div>
  </div>
+
+ @section Scripts {
+    <script>
+        $(document).ready(function () {
+            // Handle form submission with AJAX
+            $("#searchForm").submit(function (event) {
+                event.preventDefault(); //Prevent the form submitting the traditional way
+
+                //Gather search criteria Values
+                let searchTerm = $("#searchTerm").val();
+                let minAmount = $("#minAmount").val();
+                let maxAmount = $("#maxAmount").val();
+
+                // Make AJAX request
+                $.ajax({
+                    url: '@Url.Action("Search", "Home")', // The Search action in your Home controller
+                    type: 'GET',
+                    data: {
+                        searchTerm: searchTerm,
+                        minAmount: minAmount,
+                        maxAmount: maxAmount
+                    },
+                    success: function (result) {
+                        // Update the table with filtered expenses
+                        $("#expenseList").html(result);
+                    },
+                    error: function (xhr, status, error) {
+                        console.error("AJAX error: ", status, error);
+                    }
+                });
+            });
+
+            // Handle Show All Button click
+            $("#showAllButton").click(function () {
+
+                // Clear the search form inputs
+                $("#searchTerm").val('');
+                $("#minAmount").val('');
+                $("#maxAmount").val('');
+
+                // Make AJAX request to get all expenses (no filters)
+                $.ajax({
+                    url: '@Url.Action("Search", "Expenses")',
+                    type: 'GET',
+                    data: {}, // No filters passed
+                    success: function (result) {
+                        // Update the table with all expenses
+                        $("#expenseList").html(result);
+                    },
+                    error: function (xhr, status, error) {
+                        console.error("ajax error: ", status, error);
+                    }
+                });
+            });
+        });
+    </script>
+ }

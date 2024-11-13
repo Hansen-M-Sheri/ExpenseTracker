@@ -39,3 +39,4 @@ C:\Users\sheri\source\repos\ASP.NET\SpendSmart\SpendSmart\bin\Debug\net8.0\Micro
 C:\Users\sheri\source\repos\ASP.NET\SpendSmart\SpendSmart\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
 C:\Users\sheri\source\repos\ASP.NET\SpendSmart\SpendSmart\obj\Debug\net8.0\SpendSmart.csproj.AssemblyReference.cache
 C:\Users\sheri\source\repos\ASP.NET\SpendSmart\SpendSmart\obj\Debug\net8.0\SpendSmart.csproj.Up2Date
+C:\Users\sheri\source\repos\ASP.NET\SpendSmart\SpendSmart\obj\Debug\net8.0\SpendSmart.sourcelink.json

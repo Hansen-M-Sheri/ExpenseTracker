@@ -70,6 +70,32 @@ namespace SpendSmart.Controllers
             return RedirectToAction("Expenses");
         }
 
+        [HttpGet]
+        public IActionResult Search(string searchTerm, decimal? minAmount, decimal? maxAmount)
+        {
+            var expenses = _context.Expenses.AsQueryable();
+
+            //Apply search filters
+            if (!string.IsNullOrWhiteSpace(searchTerm))
+            {
+                expenses = expenses.Where(e => e.Description.Contains(searchTerm));
+            }
+            
+            if (minAmount.HasValue)
+            {
+                expenses = expenses.Where(e => e.Value >= minAmount.Value);
+            }
+
+            if (maxAmount.HasValue)
+            {
+                expenses = expenses.Where(e => e.Value <= maxAmount.Value);
+            }
+
+            // Return the partial view with the filtered expenses
+            return PartialView("_ExpenseListPartial", expenses.ToList());
+        }
+
+
         public IActionResult Privacy()
         {
             return View();
