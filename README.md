@@ -34,7 +34,7 @@ View Expenses: <br/>
 <br />
 <br />
  View Filtered Expenses: <br/>
-<img src="https://i.imgur.com/aZXFPpk.png" height="80%" width="80%" alt="View Expenses"/>
+<img src="https://i.imgur.com/oXAwQSQ.png" height="80%" width="80%" alt="View Expenses"/>
 <br />
 <br />
 Edit Expense:  <br/>
