@@ -12,6 +12,7 @@ This project is a simple, user-friendly expense tracker application built with A
 - <b>C#</b> 
 - <b>ASP.NET MVC</b>
 - <b>EntityFramework In-Memory</b>
+- <b>AJAX</b>
 
 <h2>Environments Used </h2>
 
