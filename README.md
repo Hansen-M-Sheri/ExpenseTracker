@@ -3,7 +3,7 @@
  ### [YouTube Demonstration](https://url)
 
 <h2>Description</h2>
-This project is a simple, user-friendly expense tracker application built with ASP.NET MVC and .NET Framework 8.0. It allows users to easily add, edit, and delete their expenses, with a streamlined interface designed for effective budget tracking. The application dynamically totals expenses, providing an overview of spending directly on the home page. It uses an in-memory database with Entity Framework Core, making it lightweight and perfect for demonstration purposes.
+This project is a simple, user-friendly expense tracker application built with ASP.NET MVC and .NET Framework 8.0. It allows users to easily add, edit, and delete their expenses, with a streamlined interface designed for effective budget tracking. The application dynamically totals expenses, providing an overview of spending directly on the home page. It uses an in-memory database with Entity Framework Core, making it lightweight and perfect for demonstration purposes. Started with a tutorial here: https://youtu.be/xuFdrXqpPB0?si=vWIXd_Tt2w9eG23L added AJAX filter functionality
 <br />
 
 
